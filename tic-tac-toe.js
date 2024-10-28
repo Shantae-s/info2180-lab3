@@ -52,7 +52,7 @@ function checkdiagonal(diagonal,choice){
 }
 
 function clickAction(ps){
-    if (winner == false){
+    if (winner == false){ //this line disallows cheating 
         if (track.length == 0 || track[0] == "O" && ps.textContent == ""){
             ps.textContent = "X"
             ps.classList.add("X")
