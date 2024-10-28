@@ -99,8 +99,24 @@ function hoveroutaction(ps){
     ps.classList.remove("hover")
 }
 
+function newGameAction(){
+    let var_div = document.getElementById("board").children
+    for(let i = 0 ;i < var_div.length;i++){
+        var_div[i].classList.remove("X")
+        var_div[i].classList.remove("O")
+        var_div[i].textContent = ""
+        
+    }
+    winner = false
+    track = []
+    let msg = document.getElementById("status")
+    msg.textContent = "Move your mouse over a square and click to play an X or an O."
+    msg.classList.remove("you-won")
+}
+
 onload = function(){
     var_div=document.getElementById("board").children
+    let newgame = document.getElementsByClassName("btn")
 
     for(let i=0 ;i< var_div.length; i++){
         var_div[i].setAttribute("class","square")
@@ -136,4 +152,6 @@ onload = function(){
             diagonalPositions[var_div[i].id] = 1
         }
     }
+
+    newgame[0].addEventListener("click",newGameAction)
 }
